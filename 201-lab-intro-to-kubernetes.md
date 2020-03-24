@@ -142,12 +142,12 @@ docker build -f Dockerfile -t DOCKER_ID/lab-intro-to-kubernetes:0.0.1 .
 Then you can test the application by running:
 
 ``` bash
-docker run -d -p 5000:5000 --name intro-to-kubernetes DOCKER_ID/lab-intro-to-kubernetes:0.0.1
+docker run -d -p 8080:5000 --name intro-to-kubernetes DOCKER_ID/lab-intro-to-kubernetes:0.0.1
 ```
 
 This should make the application available on:
 
-    http://127.0.0.1:5000
+    http://127.0.0.1:8080
 
 Once you have finished viewing it, delete it with
 
@@ -437,7 +437,7 @@ docker build -f Dockerfile -t DOCKER_ID/lab-intro-to-kubernetes:0.0.2 .
 Then you can test the application by running:
 
 ``` bash
-docker run -d -p 5000:5000 DOCKER_ID/lab-intro-to-kubernetes:0.0.2
+docker run -d -p 8080:5000 DOCKER_ID/lab-intro-to-kubernetes:0.0.2
 ```
 
 Push the application to DockerHub with the following command:
