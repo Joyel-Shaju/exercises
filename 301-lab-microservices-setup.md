@@ -14,19 +14,19 @@ account.
 
 ### Infrastructure Repository
 
-  - **[banking-app-infrastructure](https://github.com/armakuni/banking-app-infrastructure)**
+  - **[banking-app-infrastructure](https://github.com/software-engineering-practices/banking-app-infrastructure)**
 
 ### Microservice Repositories
 
-  - **[account-service](https://github.com/armakuni/account-service)**
-  - **[cashier-service](https://github.com/armakuni/cashier-service)**
-  - **[balance-service](https://github.com/armakuni/balance-service)**
-  - **[customer-service](https://github.com/armakuni/customer-service)**
-  - **[transaction-service](https://github.com/armakuni/transaction-service)**
+  - **[account-service](https://github.com/software-engineering-practices/account-service)**
+  - **[cashier-service](https://github.com/software-engineering-practices/cashier-service)**
+  - **[balance-service](https://github.com/software-engineering-practices/balance-service)**
+  - **[customer-service](https://github.com/software-engineering-practices/customer-service)**
+  - **[transaction-service](https://github.com/software-engineering-practices/transaction-service)**
 
 ### Smoke Test Repository
 
-  - **[banking-app-smoketest](https://github.com/armakuni/banking-app-smoketest)**
+  - **[banking-app-smoketest](https://github.com/software-engineering-practices/banking-app-smoketest)**
 
 ## 2\. Clone all the repositories locally
 
