@@ -20,7 +20,7 @@ At the end of each day you should log out of all your personal accounts.
 ### Lab - TDD
 
   - [Exercise](101-lab-tdd.md)
-  - [Code](https://github.com/armakuni/doorbell)
+  - [Code](https://github.com/armakuni/python-lab-doorbell)
 
 ### Lab - BDD
 
@@ -32,17 +32,17 @@ At the end of each day you should log out of all your personal accounts.
 ### Lab - Intro to Kubernetes
 
   - [Exercise](201-lab-intro-to-kubernetes.md)
-  - [Code](https://github.com/armakuni/lab-intro-to-kubernetes)
+  - [Code](https://github.com/software-engineering-practices/lab-intro-to-kubernetes)
 
 ### Lab - Debugging on Kubernetes
 
   - [Exercise](202-lab-debugging-on-kubernetes.md)
-  - [Code](https://github.com/armakuni/lab-intro-to-kubernetes)
+  - [Code](https://github.com/software-engineering-practices/lab-intro-to-kubernetes)
 
 ### Lab - Creating a Pipeline
 
   - [Exercise](203-lab-creating-a-pipeline.md)
-  - [Code](https://github.com/armakuni/lab-intro-to-kubernetes)
+  - [Code](https://github.com/software-engineering-practices/lab-intro-to-kubernetes)
 
 ## Day 3 / 4
 

@@ -8,12 +8,12 @@ All of the commands should be run from GitBash.
 When cloning, you should always use a SSH URL. These look something like
 the following:
 
-    git@github.com:armakuni/training-exercises.git
+    git@github.com:software-engineering-practices/exercises.git
 
 Conversely, if you are using the URL in a context where you don't need
 or are unable to push, then you will want to use a HTTPS URL like so:
 
-    https://github.com/armakuni/training-exercises.git
+    https://github.com/software-engineering-practices/exercises.git
 
 From the repository's GitHub page, you will see a button like the one
 below:
