@@ -1,7 +1,7 @@
 # Deploying the Microservices
 
-For days 3 and 4, you'll be working on a provided microservice
-architecture. This guide takes you through the process of getting all
+For days 3 and 4, you'll be working on a provided Microservice
+Architecture. This guide takes you through the process of getting all
 the services up and running with Jenkins and Kubernetes.
 
 ## 1\. Fork the repositories
@@ -36,14 +36,14 @@ If it does not already exist, please create a directory on the machine
 with the following command:
 
 ``` cmd
-mkdir %HOMEDRIVE%%HOMEPATH%\Code
-mkdir %HOMEDRIVE%%HOMEPATH%\Code\day-3
+mkdir $HOMEPATH/Code
+mkdir $HOMEPATH/Code/day-3
 ```
 
 Next, move into the directory:
 
 ``` cmd
-cd %HOMEDRIVE%%HOMEPATH%\Code\day-3
+cd $HOMEPATH/Code/day-3
 ```
 
 ### 2.2 Clone all the following repositories

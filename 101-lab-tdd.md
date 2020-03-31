@@ -58,14 +58,15 @@ If it does not already exist, please create a directory on the machine
 with the following command:
 
 ``` cmd
-mkdir %HOMEDRIVE%%HOMEPATH%\Code
-mkdir %HOMEDRIVE%%HOMEPATH%\Code\day-1
+echo "export HOMEPATH='$PWD'" >> ~/.bash_profile | source ~/.bash_profile
+mkdir $HOMEPATH/Code
+mkdir $HOMEPATH/Code/day-1
 ```
 
 Next, move into the directory:
 
 ``` cmd
-cd %HOMEDRIVE%%HOMEPATH%\Code\day-1
+cd $HOMEPATH/Code/day-1
 ```
 
 #### Checkout the code
@@ -92,7 +93,7 @@ into your working directory by running the following command, replacing
 `GITHUB_ID` with your GitHub ID:
 
 ``` cmd
-cd %HOMEDRIVE%%HOMEPATH%\Code\day-1
+cd $HOMEPATH/Code/day-1
 git clone https://github.com/GITHUB_ID/python-lab-doorbell
 ```
 

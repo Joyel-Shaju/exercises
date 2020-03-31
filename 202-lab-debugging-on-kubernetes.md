@@ -157,7 +157,7 @@ This should return something like:
 ### Simulate error in Kubernetes config
 
 Next, update the following line in
-`lab-intro-to-kubernetes\kubernetes\deployment.yml`:
+`lab-intro-to-kubernetes/kubernetes/deployment.yml`:
 
 ``` yaml
 image: DOCKER_ID/lab-intro-to-kubernetes:0.0.2
@@ -205,7 +205,7 @@ This should now look something like this:
 ### Simulate application error
 
 Let's now create an error in the application. In
-`lab-intro-to-kubernetes\scripts\docker-start.sh` change the line:
+`lab-intro-to-kubernetes/scripts/docker-start.sh` change the line:
 
 ``` bash
 flask run --host=0.0.0.0
@@ -285,7 +285,7 @@ This will now show us the output from running the script:
 
 We can see that our typo has caused the problem.
 
-Update the `lab-intro-to-kubernetes\docker-start.sh` file to once again
+Update the `lab-intro-to-kubernetes/docker-start.sh` file to once again
 read:
 
 ``` bash
@@ -295,7 +295,7 @@ flask run --host=0.0.0.0
 ### Execute commands inside the container
 
 To demonstrate debugging inside a container, let's now change the
-`lab-intro-to-kubernetes\app.py`, update the following:
+`lab-intro-to-kubernetes/app.py`, update the following:
 
 ``` python
 recipient = os.getenv("RECIPIENT", "world")

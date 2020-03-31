@@ -51,14 +51,14 @@ If it does not already exist, please create a directory on the machine
 with the following command:
 
 ``` cmd
-mkdir %HOMEDRIVE%%HOMEPATH%\Code
-mkdir %HOMEDRIVE%%HOMEPATH%\Code\day-2
+mkdir $HOMEPATH/Code
+mkdir $HOMEPATH/Code/day-2
 ```
 
 Next, move into the directory:
 
 ``` cmd
-cd %HOMEDRIVE%%HOMEPATH%\Code\day-2
+cd $HOMEPATH/Code/day-2
 ```
 
 #### Checkout the code
@@ -85,7 +85,7 @@ into your working directory by running the following command, replacing
 `GITHUB_ID` with your GitHub ID:
 
 ``` cmd
-cd %HOMEDRIVE%%HOMEPATH%\Code\day-2
+cd $HOMEPATH/Code/day-2
 git clone git@github.com:GITHUB_ID/lab-intro-to-kubernetes.git
 ```
 
@@ -258,7 +258,7 @@ instructor to resolve.
 In the `lab-intro-to-kubernetes` repository, you will find the following
 file:
 
-    lab-intro-to-kubernetes\kubernetes\deployment.yml
+    lab-intro-to-kubernetes/kubernetes/deployment.yml
 
 It should look like the following:
 
@@ -393,11 +393,11 @@ This should return the following:
 #### Environment variables
 
 If you look at the application code in the
-`lab-intro-to-kubernetes\app.py`, you will notice that the recipient
+`lab-intro-to-kubernetes/app.py`, you will notice that the recipient
 field is populated from an environment variable called `RECIPIENT`. It
 is added to the containers environment, initially by the container
 environment setting in the
-`lab-intro-to-kubernetes\kubernetes\deployment.yml` file. We can update
+`lab-intro-to-kubernetes/kubernetes/deployment.yml` file. We can update
 it with the following command:
 
     kubectl -n NAMESPACE set env deployment/frontend RECIPIENT="myname"
@@ -414,7 +414,7 @@ Now, if you refresh the page in your browser you should see:
 #### Application and image
 
 Let's now update the application. In your editor, open
-`lab-intro-to-kubernetes\app.py`. Change the following line:
+`lab-intro-to-kubernetes/app.py`. Change the following line:
 
 ``` python
 return jsonify({"message": "Hello", "recipient": recipient})
@@ -502,7 +502,7 @@ frontend-79c59bbc7f-zttmf   1/1     Running       0          4m
 Once you have done this, you should be able to commit your changes with
 
 ``` bash
-git add app.py kubernetes\deployment.yml
+git add app.py kubernetes/deployment.yml
 git commit -m "Update kubernetes manifests and output key"
 git push
 ```

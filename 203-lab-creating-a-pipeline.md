@@ -145,7 +145,7 @@ This will take you to the build's console output.
 
 Again, you should see that the build failed due to the tests failing
 because of a change that we made earlier. The following line in
-`lab-intro-to-kubernetes\app.py`:
+`lab-intro-to-kubernetes/app.py`:
 
 ``` python
 return jsonify({"message": "Goodbye", "recipient": recipient})
