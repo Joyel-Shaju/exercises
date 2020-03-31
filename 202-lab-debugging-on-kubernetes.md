@@ -17,7 +17,7 @@ previous exercise.
 
 To show an overview of the status of all pods, you can run:
 
-``` bash
+```bash
 kubectl get pods -n NAMESPACE
 ```
 
@@ -53,13 +53,13 @@ needs further debugging.
 If you find that a pod has a problem, you can dig deeper with the
 following (replacing `POD_NAME` with the name of the pod):
 
-``` bash
+```bash
 kubectl describe pod POD_NAME -n NAMESPACE
 ```
 
 For example:
 
-``` bash
+```bash
 kubectl describe pod frontend-56c5d4bbb4-cjc74 -n NAMESPACE
 ```
 
@@ -73,7 +73,7 @@ can aid in debugging.
 You can also look at all events within Kubernetes to try and ascertain
 what might have happened.
 
-``` bash
+```bash
 kubectl get events -n NAMESPACE
 ```
 
@@ -85,19 +85,19 @@ been up and how many pods you have, but can often be helpful.
 As with any application, checking the logs when something goes wrong is
 also a good place to look when debugging.
 
-``` bash
+```bash
 kubectl logs POD_NAME -n NAMESPACE
 ```
 
 E.g:
 
-``` bash
+```bash
 kubectl logs frontend-56c5d4bbb4-cjc74 -n changeme
 ```
 
 You can also add a `-f` option to follow the logs:
 
-``` bash
+```bash
 kubectl logs -f POD_NAME -n NAMESPACE
 ```
 
@@ -115,7 +115,7 @@ discuss this further later in the course.
 It can often be helpful to run a command inside a container. The syntax
 for this is:
 
-``` bash
+```bash
 kubectl exec -n NAMESPACE POD_NAME -- COMMAND
 ```
 
@@ -145,7 +145,7 @@ Let's now intentionally break our application from
 
 First of all, let's ensure that you only have one replica running:
 
-``` bash
+```bash
 kubectl -n NAMESPACE get pods
 ```
 
@@ -159,27 +159,27 @@ This should return something like:
 Next, update the following line in
 `lab-intro-to-kubernetes/kubernetes/deployment.yml`:
 
-``` yaml
+```yaml
 image: DOCKER_ID/lab-intro-to-kubernetes:0.0.2
 ```
 
 This should have your Docker ID instead of `DOCKER_ID` initially. Change
 your Docker ID to be `INVALID_ID` so that it looks like this:
 
-``` yaml
+```yaml
 image: INVALID_ID/lab-intro-to-kubernetes:0.0.2
 ```
 
 When we apply this, it will create an error when trying to deploy (which
 you will see when you later run `get pods`). Run:
 
-``` bash
+```bash
 kubectl apply -n NAMESPACE -f kubernetes\
 ```
 
 Then run the following again:
 
-``` bash
+```bash
 kubectl -n NAMESPACE get pods
 ```
 
@@ -193,7 +193,7 @@ As expected you will see that the pod is showing that the image name you
 have selected is invalid. Change the image name back to be your valid
 Docker ID and run the apply command again:
 
-``` bash
+```bash
 kubectl apply -n NAMESPACE -f kubernetes\
 ```
 
@@ -207,20 +207,20 @@ This should now look something like this:
 Let's now create an error in the application. In
 `lab-intro-to-kubernetes/scripts/docker-start.sh` change the line:
 
-``` bash
+```bash
 flask run --host=0.0.0.0
 ```
 
 To be:
 
-``` bash
+```bash
 flask zrun --host=0.0.0.0
 ```
 
 Now rebuild the application in Docker, push to DockerHub and deploy to
 Kubernetes:
 
-``` bash
+```bash
 docker build -t DOCKER_ID/lab-intro-to-kubernetes:0.0.3 .
 docker push DOCKER_ID/lab-intro-to-kubernetes:0.0.3
 kubectl -n NAMESPACE set image deployment/frontend kubernetes-intro-web=DOCKER_ID/lab-intro-to-kubernetes:0.0.3
@@ -228,7 +228,7 @@ kubectl -n NAMESPACE set image deployment/frontend kubernetes-intro-web=DOCKER_I
 
 Now, when we run:
 
-``` bash
+```bash
 kubectl -n NAMESPACE get pods
 ```
 
@@ -247,10 +247,9 @@ problem with our app.
 
 So let's now look at the description:
 
-> You will need to replace the pod name with the one from your `get
-> pods` output:
+> You will need to replace the pod name with the one from your `get pods` output:
 
-``` bash
+```bash
 kubectl -n NAMESPACE describe pod POD_NAME
 ```
 
@@ -262,7 +261,7 @@ This indicates again that something is wrong with the container, but
 isn't helping us to see exactly what. Let's now look at the logs for the
 container:
 
-``` bash
+```bash
 kubectl -n NAMESPACE logs POD_NAME
 ```
 
@@ -275,12 +274,12 @@ This will now show us the output from running the script:
     New python executable in /root/.local/share/virtualenvs/hello_world-AVvKZXOc/bin/python
     Installing setuptools, pip, wheel...
     done.
-    
+
     ✔ Successfully created virtual environment!
     Virtualenv location: /root/.local/share/virtualenvs/hello_world-AVvKZXOc
     Usage: flask [OPTIONS] COMMAND [ARGS]...
     Try "flask --help" for help.
-    
+
     Error: No such command "zrun".
 
 We can see that our typo has caused the problem.
@@ -288,7 +287,7 @@ We can see that our typo has caused the problem.
 Update the `lab-intro-to-kubernetes/docker-start.sh` file to once again
 read:
 
-``` bash
+```bash
 flask run --host=0.0.0.0
 ```
 
@@ -297,19 +296,19 @@ flask run --host=0.0.0.0
 To demonstrate debugging inside a container, let's now change the
 `lab-intro-to-kubernetes/app.py`, update the following:
 
-``` python
+```python
 recipient = os.getenv("RECIPIENT", "world")
 ```
 
 To be:
 
-``` python
+```python
 recipient = os.getenv("RECEIVER", "unknown")
 ```
 
 Then build and deploy a new version:
 
-``` bash
+```bash
 docker build -t DOCKER_ID/lab-intro-to-kubernetes:0.0.4 .
 docker push DOCKER_ID/lab-intro-to-kubernetes:0.0.4
 kubectl -n NAMESPACE set image deployment/frontend kubernetes-intro-web=DOCKER_ID/lab-intro-to-kubernetes:0.0.4
@@ -320,26 +319,26 @@ shows `"unknown"`.
 
 To have a look inside the container, get its name from `get pods`:
 
-``` bash
+```bash
 kubectl -n NAMESPACE get pods
 ```
 
 Then run:
 
-``` bash
+```bash
 kubectl -n NAMESPACE exec -it POD_NAME -- /bin/bash
 ```
 
 Which will give you a prompt like so:
 
-``` shell
+```shell
 root@frontend-79c59bbc7f-mbf8s:/opt/hello_world#
 ```
 
 Within the shell, you can now run any Linux command available in the
 container. Let's have a look at the environment:
 
-``` shell
+```shell
 env | sort
 ```
 
@@ -347,13 +346,13 @@ As you will see, there will be a lot of output, but our `RECEIVER`
 variable won't be there (obviously, because we didn't set it). You can
 now exit the container with:
 
-``` shell
+```shell
 exit
 ```
 
 Add the environment variable with:
 
-``` bash
+```bash
 kubectl -n NAMESPACE set env deployment/frontend RECEIVER='myname'
 ```
 

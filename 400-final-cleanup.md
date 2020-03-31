@@ -8,7 +8,7 @@ and remove them from your GitHub account.
 
 From GitBash:
 
-``` bash
+```bash
 rm -rf ~/.ssh/*
 ```
 
@@ -16,7 +16,7 @@ rm -rf ~/.ssh/*
 
 You will also need to log out of DockerHub on the command line:
 
-``` bash
+```bash
 docker logout
 ```
 
@@ -24,7 +24,7 @@ docker logout
 
 To remove all artefacts from Docker, run the following from GitBash
 
-``` bash
+```bash
 docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
 docker image prune -a

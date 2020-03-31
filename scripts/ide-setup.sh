@@ -1,6 +1,8 @@
 echo "------------------------------------------------------------------------"
 echo "Starting IDE Setup"
 echo "------------------------------------------------------------------------"
+WORKING_DIRECTORY="$PWD"
+mkdir setup-repo && cd setup-repo
 echo "Installing Kubectl"
 
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.15.10/2020-02-22/bin/linux/amd64/kubectl
@@ -33,12 +35,11 @@ echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 
 aws-iam-authenticator help
 
-echo "Updating KubeConfig"
+echo "Updating KubeConfig"  
 
-aws eks --region eu-west-2 update-kubeconfig --name dev-ak-k8s-cluster
+aws eks --region eu-west-2 update-kubeconfig --name prod-ak-k8s-cluster
 
 echo "Installing Python 3.7"
-WORKING_DIRECTORY="$PWD"
 
 cd /usr/src
 
@@ -52,7 +53,8 @@ sudo ./configure --enable-optimizations
 
 sudo make altinstall
 
-pip install pipenv
+sudo pip install --upgrade pip
+sudo pip install pipenv
 
 cd $WORKING_DIRECTORY
 echo "------------------------------------------------------------------------"

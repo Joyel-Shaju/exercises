@@ -14,19 +14,19 @@ account.
 
 ### Infrastructure Repository
 
-  - **[banking-app-infrastructure](https://github.com/software-engineering-practices/banking-app-infrastructure)**
+- **[banking-app-infrastructure](https://github.com/software-engineering-practices/banking-app-infrastructure)**
 
 ### Microservice Repositories
 
-  - **[account-service](https://github.com/software-engineering-practices/account-service)**
-  - **[cashier-service](https://github.com/software-engineering-practices/cashier-service)**
-  - **[balance-service](https://github.com/software-engineering-practices/balance-service)**
-  - **[customer-service](https://github.com/software-engineering-practices/customer-service)**
-  - **[transaction-service](https://github.com/software-engineering-practices/transaction-service)**
+- **[account-service](https://github.com/software-engineering-practices/account-service)**
+- **[cashier-service](https://github.com/software-engineering-practices/cashier-service)**
+- **[balance-service](https://github.com/software-engineering-practices/balance-service)**
+- **[customer-service](https://github.com/software-engineering-practices/customer-service)**
+- **[transaction-service](https://github.com/software-engineering-practices/transaction-service)**
 
 ### Smoke Test Repository
 
-  - **[banking-app-smoketest](https://github.com/software-engineering-practices/banking-app-smoketest)**
+- **[banking-app-smoketest](https://github.com/software-engineering-practices/banking-app-smoketest)**
 
 ## 2\. Clone all the repositories locally
 
@@ -35,14 +35,14 @@ account.
 If it does not already exist, please create a directory on the machine
 with the following command:
 
-``` cmd
+```cmd
 mkdir $HOMEPATH/Code
 mkdir $HOMEPATH/Code/day-3
 ```
 
 Next, move into the directory:
 
-``` cmd
+```cmd
 cd $HOMEPATH/Code/day-3
 ```
 
@@ -51,7 +51,7 @@ cd $HOMEPATH/Code/day-3
 In your Git Bash terminal, `cd` to your local projects directory and run
 the following commands:
 
-``` cmd
+```cmd
 export GITHUB_ID=<GITHUB_ID>
 git clone git@github.com:$GITHUB_ID/banking-app-infrastructure
 git clone git@github.com:$GITHUB_ID/account-service
@@ -66,7 +66,7 @@ git clone git@github.com:$GITHUB_ID/banking-app-smoketest
 
 In a terminal, `cd` into the `banking-app-smoketest` directory and run:
 
-``` cmd
+```cmd
 docker-compose up
 ```
 
@@ -100,7 +100,7 @@ forked the repository to.
 Then commit and push the change.
 
 > ### Take a Moment to Review the Repository
-> 
+>
 > This Jenkinsfile simply uses `kubectl` to apply the manifest in the
 > `kubernetes/` directory. The `ingress.yml` manifest sets up the routes
 > into the app and the Jenkins pipeline substitutes the host names with
@@ -182,33 +182,33 @@ following steps:
 
 ### Creating a Customer
 
-``` cmd
+```cmd
 curl -X POST http://GITHUB_ID-app.apps.training.co.uk/customers/ -H 'Content-Type: application/json' -d '{"firstName": "Joe", "surname": "Bloggs"}'
 ```
 
 ### Fetching a Customer
 
-``` cmd
+```cmd
 curl -X GET http://GITHUB_ID-app.apps.training.co.uk/customers/CUSTOMER_ID
 ```
 
 ### Create an Account
 
-``` cmd
+```cmd
 curl -X POST http://GITHUB_ID-app.apps.training.co.uk/accounts/ -H 'Content-Type: application/json' -d '{"customerId": "CUSTOMER_ID"}'
 ```
 
 ### Fetch an Account
 
-``` cmd
+```cmd
 curl -X GET http://GITHUB_ID-app.apps.training.co.uk/accounts/ACCOUNT_NUMBER
 ```
 
-**Note:** ACCOUNT\_NUMBER must be 8 digits
+**Note:** ACCOUNT_NUMBER must be 8 digits
 
 ### Make a Transaction
 
-``` cmd
+```cmd
 curl -X POST http://GITHUB_ID-app.apps.training.co.uk/cashier/create -H 'Content-Type: application/json' -d '{"accountNumber": "ACCOUNT_NUMBER", "amount": 100, "operation": "credit"}'
 ```
 
@@ -220,8 +220,8 @@ curl -X POST http://GITHUB_ID-app.apps.training.co.uk/cashier/create -H 'Content
 
 ### Check the Balance
 
-``` cmd
+```cmd
 curl -X GET http://GITHUB_ID-app.apps.training.co.uk/balance/ACCOUNT_NUMBER
 ```
 
-**Note:** ACCOUNT\_NUMBER must be 8 digits
+**Note:** ACCOUNT_NUMBER must be 8 digits

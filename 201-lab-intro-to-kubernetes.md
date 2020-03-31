@@ -11,13 +11,13 @@ You will need the following software installed and in your `PATH` on the
 command line where appropriate in order to complete the exercises in
 this document.
 
-  - `aws-iam-authenticator`
-  - `docker`
-  - `git`
-  - `git bash`
-  - `kubectl`
-  - `python`
-  - `PyCharm`
+- `aws-iam-authenticator`
+- `docker`
+- `git`
+- `git bash`
+- `kubectl`
+- `python`
+- `PyCharm`
 
 This should have all been done for you in preparation for the course.
 However, should you get any missing command errors whilst following this
@@ -29,19 +29,19 @@ speak to one of the instructors.
 You will also need access to the following in order to complete the
 exercises:
 
-  - GitHub access. You should have signed up for an account on
-    <https://github.com/>.
-  - DockerHub access. You should have signed up for a DockerHub account
-    here <https://hub.docker.com>.
+- GitHub access. You should have signed up for an account on
+  <https://github.com/>.
+- DockerHub access. You should have signed up for a DockerHub account
+  here <https://hub.docker.com>.
 
 If you do not have either or both of these, please sign up for them now
 using the links provided.
 
 You will also need:
 
-  - Kubernetes cluster access. This is provided by Armakuni on your
-    workstation, you should not need to configure this yourself. Checks
-    to ensure access will be performed during a later step.
+- Kubernetes cluster access. This is provided by Armakuni on your
+  workstation, you should not need to configure this yourself. Checks
+  to ensure access will be performed during a later step.
 
 ### Working directory and code
 
@@ -50,14 +50,14 @@ You will also need:
 If it does not already exist, please create a directory on the machine
 with the following command:
 
-``` cmd
+```cmd
 mkdir $HOMEPATH/Code
 mkdir $HOMEPATH/Code/day-2
 ```
 
 Next, move into the directory:
 
-``` cmd
+```cmd
 cd $HOMEPATH/Code/day-2
 ```
 
@@ -84,7 +84,7 @@ This should take you to your fork. Next you should checkout this fork
 into your working directory by running the following command, replacing
 `GITHUB_ID` with your GitHub ID:
 
-``` cmd
+```cmd
 cd $HOMEPATH/Code/day-2
 git clone git@github.com:GITHUB_ID/lab-intro-to-kubernetes.git
 ```
@@ -96,16 +96,16 @@ now browse the code with your editor.
 
 In this section, you are going to:
 
-  - Login to DockerHub on the command line and web UI
-  - Create a repository in DockerHub
-  - Build an image from the "hello world" code and a `Dockerfile`
-  - Test the image on a local `docker` daemon
-  - Push the image to DockerHub
+- Login to DockerHub on the command line and web UI
+- Create a repository in DockerHub
+- Build an image from the "hello world" code and a `Dockerfile`
+- Test the image on a local `docker` daemon
+- Push the image to DockerHub
 
 Firstly ensure that your local `docker` installation is working
 correctly:
 
-``` bash
+```bash
 docker ps
 ```
 
@@ -114,19 +114,18 @@ you receive any errors, you will need to debug your installation.
 
 Login to DockerHub on the command line with the following command:
 
-``` bash
+```bash
 docker login
 ```
 
 You will be prompted to enter your username and password.
 
-Next, open a web browser and create a new repository called
-`lab-intro-to-kubernetes` in the DockerHub UI here:
-<https://hub.docker.com>. You will need to login if you haven't already.
+You will need to login if you haven't already.
 You should see a large button that says `Create Repository +` on the
-dashboard after logging in, click this button. Next, give the repository
-its name and a description (the description is optional). Finally, click
-`Create`.
+dashboard after logging in, click this button.
+
+Next, give the repository its name and a description (the description is optional).
+Finally, click `Create`.
 
 Back in the terminal, `cd` into the root of the
 `lab-intro-to-kubernetes` repository and build an image from the
@@ -135,13 +134,13 @@ Back in the terminal, `cd` into the root of the
 > Note: in each of the following commands, replace `DOCKER_ID` with your
 > DockerHub username.
 
-``` bash
+```bash
 docker build -f Dockerfile -t DOCKER_ID/lab-intro-to-kubernetes:0.0.1 .
 ```
 
 Then you can test the application by running:
 
-``` bash
+```bash
 docker run -d -p 8080:5000 --name intro-to-kubernetes DOCKER_ID/lab-intro-to-kubernetes:0.0.1
 ```
 
@@ -151,14 +150,14 @@ This should make the application available on:
 
 Once you have finished viewing it, delete it with
 
-``` bash
+```bash
 docker stop intro-to-kubernetes
 docker rm intro-to-kubernetes
 ```
 
 Push the application to DockerHub with the following command:
 
-``` bash
+```bash
 docker push DOCKER_ID/lab-intro-to-kubernetes:0.0.1
 ```
 
@@ -184,7 +183,7 @@ be excluded.
 
 Check to ensure that your `kubectl` has the correct configuration:
 
-``` bash
+```bash
 kubectl config view
 ```
 
@@ -192,7 +191,7 @@ You should see something similar to the following, with the exception of
 the two `REDACTED` fields which should contain data for `server` and
 `certificate-authority-data`.
 
-``` yaml
+```yaml
 ---
 apiVersion: v1
 clusters:
@@ -222,7 +221,7 @@ users:
 
 If you see something like this:
 
-``` yaml
+```yaml
 ---
 apiVersion: v1
 clusters: []
@@ -238,7 +237,7 @@ one of the instructors to fix this issue.
 
 Next check that the `kubectl` config is valid:
 
-``` bash
+```bash
 kubectl get namespaces
 ```
 
@@ -262,7 +261,7 @@ file:
 
 It should look like the following:
 
-``` yaml
+```yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -304,7 +303,7 @@ Save the file.
 You you have been created a unique namespace to in Kubernetes to work
 inside. You can see it by running:
 
-``` bash
+```bash
 kubectl get namespaces
 ```
 
@@ -333,7 +332,7 @@ able to interfere with one another accidentally (or intentionally).
 Next, to launch the application run the following from within the
 `lab-intro-to-kubernetes` repository:
 
-``` bash
+```bash
 kubectl apply -n NAMESPACE -f kubernetes/deployment.yml
 kubectl apply -n NAMESPACE -f kubernetes/service.yml
 ```
@@ -341,7 +340,7 @@ kubectl apply -n NAMESPACE -f kubernetes/service.yml
 Once both of these manifests have been applied, first view the pods in
 Kubernetes:
 
-``` bash
+```bash
 kubectl -n NAMESPACE get pods
 ```
 
@@ -352,12 +351,11 @@ Which should return something similar to this:
 
 Ensure that all pods are showing `1/1` in the `READY` column and a
 status of `RUNNING`. There should also be `0` or very few restarts. It
-may take a minute or two to get into this state. Keep running the `get
-pods` command until all are ready and running.
+may take a minute or two to get into this state. Keep running the `get pods` command until all are ready and running.
 
 Then view the deployments
 
-``` bash
+```bash
 kubectl -n NAMESPACE get deployments
 ```
 
@@ -381,7 +379,7 @@ terminal):
 
 This should return the following:
 
-``` json
+```json
 {
   "message": "Hello",
   "recipient": "world"
@@ -404,7 +402,7 @@ it with the following command:
 
 Now, if you refresh the page in your browser you should see:
 
-``` json
+```json
 {
   "message": "Hello",
   "recipient": "myname"
@@ -416,13 +414,13 @@ Now, if you refresh the page in your browser you should see:
 Let's now update the application. In your editor, open
 `lab-intro-to-kubernetes/app.py`. Change the following line:
 
-``` python
+```python
 return jsonify({"message": "Hello", "recipient": recipient})
 ```
 
 To read
 
-``` python
+```python
 return jsonify({"message": "Goodbye", "recipient": recipient})
 ```
 
@@ -430,19 +428,19 @@ Save the file and build a new Docker image:
 
 > Note: remember to replace `DOCKER_ID` with your DockerHub username
 
-``` bash
+```bash
 docker build -f Dockerfile -t DOCKER_ID/lab-intro-to-kubernetes:0.0.2 .
 ```
 
 Then you can test the application by running:
 
-``` bash
+```bash
 docker run -d -p 8080:5000 DOCKER_ID/lab-intro-to-kubernetes:0.0.2
 ```
 
 Push the application to DockerHub with the following command:
 
-``` bash
+```bash
 docker push DOCKER_ID/lab-intro-to-kubernetes:0.0.2
 ```
 
@@ -459,13 +457,13 @@ instances of your application:
 
 ### Scale up
 
-``` bash
+```bash
 kubectl -n NAMESPACE scale --replicas=3 deployment frontend
 ```
 
 You can view this with:
 
-``` bash
+```bash
 kubectl -n NAMESPACE get pods
 ```
 
@@ -480,19 +478,19 @@ Which should display something like:
 
 Let's now scale the deployment down:
 
-``` bash
+```bash
 kubectl -n NAMESPACE scale --replicas=1 deployment frontend
 ```
 
 Now view the pods
 
-``` bash
+```bash
 kubectl -n NAMESPACE get pods
 ```
 
 Which should display something like:
 
-``` bash
+```bash
 NAME                        READY   STATUS        RESTARTS   AGE
 frontend-79c59bbc7f-zttmf   1/1     Running       0          4m
 ```
@@ -501,7 +499,7 @@ frontend-79c59bbc7f-zttmf   1/1     Running       0          4m
 
 Once you have done this, you should be able to commit your changes with
 
-``` bash
+```bash
 git add app.py kubernetes/deployment.yml
 git commit -m "Update kubernetes manifests and output key"
 git push

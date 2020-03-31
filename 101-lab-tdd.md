@@ -10,12 +10,12 @@ sound to be played).
 
 ## Doorbell Behaviour
 
-  - If the number of knocks is divisible by 3 output `Ding`.
-  - If the number of knocks is divisible by 5, output `Dong`.
-  - If the number of knocks is divisible by 3 and 5, output `DingDong`.
-  - If the number of knocks is not divisible by 3 or 5, just pass the
-    number's digits straight through as a string (and that amount of
-    knocks will be played).
+- If the number of knocks is divisible by 3 output `Ding`.
+- If the number of knocks is divisible by 5, output `Dong`.
+- If the number of knocks is divisible by 3 and 5, output `DingDong`.
+- If the number of knocks is not divisible by 3 or 5, just pass the
+  number's digits straight through as a string (and that amount of
+  knocks will be played).
 
 ### Example
 
@@ -40,15 +40,15 @@ and the template for your function.
 
 ### Rules
 
-  - Use Ping-Pong Pair Programming
-    1.  Person A writes a test
-    2.  Person B makes the test pass and then writes the next test
-    3.  Person A makes that test pass and then writes the next test
-    4.  And so on
-  - Work exclusively using the TDD cycle
-      - **Red** - write a failing test
-      - **Green** - write *only enough code to make the test pass*
-      - **Refactor** - improve the code *without changing the behaviour*
+- Use Ping-Pong Pair Programming
+  1.  Person A writes a test
+  2.  Person B makes the test pass and then writes the next test
+  3.  Person A makes that test pass and then writes the next test
+  4.  And so on
+- Work exclusively using the TDD cycle
+  - **Red** - write a failing test
+  - **Green** - write _only enough code to make the test pass_
+  - **Refactor** - improve the code _without changing the behaviour_
 
 ### Working directory and code
 
@@ -57,15 +57,15 @@ and the template for your function.
 If it does not already exist, please create a directory on the machine
 with the following command:
 
-``` cmd
-echo "export HOMEPATH='$PWD'" >> ~/.bash_profile | source ~/.bash_profile
+```cmd
+echo "export HOMEPATH='$PWD'" >> ~/.bash_profile && source ~/.bash_profile
 mkdir $HOMEPATH/Code
 mkdir $HOMEPATH/Code/day-1
 ```
 
 Next, move into the directory:
 
-``` cmd
+```cmd
 cd $HOMEPATH/Code/day-1
 ```
 
@@ -92,7 +92,7 @@ This should take you to your fork. Next you should checkout this fork
 into your working directory by running the following command, replacing
 `GITHUB_ID` with your GitHub ID:
 
-``` cmd
+```cmd
 cd $HOMEPATH/Code/day-1
 git clone https://github.com/GITHUB_ID/python-lab-doorbell
 ```
@@ -104,7 +104,7 @@ now browse the code with your editor.
 
 Run the following commmands:
 
-``` cmd
+```cmd
 cd python-lab-doorbell
 pipenv install --dev
 ```
@@ -113,18 +113,16 @@ pipenv install --dev
 
 Use the following command to run the tests:
 
-``` cmd
+```cmd
 pipenv run python -m pytest
 ```
 
 **Note**: The first test will fail.
 
-#### Open the Project in PyCharm
+#### Open the Project in IDE
 
-1.  Open PyCharm
-2.  Choose `Open` (from the Welcome to PyCharm dialog or the `File`
-    menu)
-3.  Naviage to the `python-lab-doorbell` directory and click `Open`
+1.  Choose `Open` in your IDE
+2.  Naviage to the `python-lab-doorbell` directory and click `Open`
 
 You can find the test in `test_doorbell.py` and the `ring` function in
 `doorbell.py`.
@@ -137,7 +135,7 @@ of a function is `pass`).
 
 To make this test pass, update the `ring` function like so:
 
-``` python
+```python
 def ring(number_of_knocks):
     return ''
 ```
@@ -147,7 +145,7 @@ def ring(number_of_knocks):
 Now, using ping-pong pairing and the TDD cycle, implement the complete
 behaviour.
 
------
+---
 
 ## Extra: New Behaviour
 
@@ -157,14 +155,14 @@ on this next requirement.
 We've decided that we want the bell to behave a bit differently. It
 should now work in the following way:
 
-  - If the number of knocks is divisible by 3 output `Ding`.
-  - If the number of knocks is divisible by 5, output `Dang`.
-  - If the number of knocks is divisible by 7, output `Dong`.
-  - If the number of knocks is divisible by 3 and 5, output `DingDang`.
-  - If the number of knocks is divisible by 3 and 7, output `DingDong`.
-  - If the number of knocks is divisible by 5 and 7, output `DangDong`.
-  - If the number of knocks is divisible by 3, 5 and 7, output
-    `DingDangDong`.
-  - If the number of knocks is not divisible by 3, 5 or 7 just pass the
-    number's digits straight through as a string (and that amount of
-    knocks will be played).
+- If the number of knocks is divisible by 3 output `Ding`.
+- If the number of knocks is divisible by 5, output `Dang`.
+- If the number of knocks is divisible by 7, output `Dong`.
+- If the number of knocks is divisible by 3 and 5, output `DingDang`.
+- If the number of knocks is divisible by 3 and 7, output `DingDong`.
+- If the number of knocks is divisible by 5 and 7, output `DangDong`.
+- If the number of knocks is divisible by 3, 5 and 7, output
+  `DingDangDong`.
+- If the number of knocks is not divisible by 3, 5 or 7 just pass the
+  number's digits straight through as a string (and that amount of
+  knocks will be played).

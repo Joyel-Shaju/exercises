@@ -107,7 +107,7 @@ Your GitHub ID will automatically become your namespace in Kubernetes
 (which should already exist). This should be the account you used to
 fork the repository.
 
-``` groovy
+```groovy
 // VARIABLES
 
 def github_id = 'GITHUB_ID'
@@ -116,7 +116,7 @@ def github_id = 'GITHUB_ID'
 Once you have updated this variable, commit your file and push it to
 GitHub.
 
-``` bash
+```bash
 git add Jenkinsfile
 git commit -m "Update github_id in Jenkinsfile"
 git push
@@ -147,19 +147,19 @@ Again, you should see that the build failed due to the tests failing
 because of a change that we made earlier. The following line in
 `lab-intro-to-kubernetes/app.py`:
 
-``` python
+```python
 return jsonify({"message": "Goodbye", "recipient": recipient})
 ```
 
 To:
 
-``` python
+```python
 return jsonify({"message": "Hello", "recipient": recipient, "result": "OK"})
 ```
 
 Again, commit your changes and push to GitHub
 
-``` bash
+```bash
 git add app.py
 git commit -m "Change message from Goodbye to Hello"
 git push
@@ -176,7 +176,7 @@ in the browser, once the build completes, you should see your changes.
 These variables are used by the pod template and build stages, but
 shouldn't be edited.
 
-``` groovy
+```groovy
 // vvv DO NOT EDIT THE VARIABLES BETWEEN THESE MARKERS vvv //
 
 def git_commit     = ''
@@ -229,31 +229,31 @@ spec:
 
 #### Variable descriptions
 
-  - `git_commit`: variable created in this parent scope so that it can
-    be set in the Docker image build stage and referenced by subsequent
-    stages.
-  - `git_repository`: name of the git repository to clone and work
-    against.
-  - `image_name`: image / Docker repository name that will be referenced
-    when pushing to DockerHub or deploying to Kubernetes.
-  - `kaniko_image`: Kaniko is a tool for building Docker images without
-    a Docker daemon. This avoids having to use Docker in Docker. The
-    image is a reference to the pre-built Kaniko image provided by
-    Google.
-  - `kubectl_image`: image reference for a container image that contains
-    the necessary tooling to deploy to Kubernetes using `kubectl`.
-  - `label`: a unique label for the executor node.
-  - `namespace`: namespace to launch the application into.
-  - `pod_yaml`: YAML configuration for describing the pods to be used by
-    Kubernetes to run each build stage. The names of each container are
-    referenced later in `container(name: CONTAINER_NAME){}` calls.
+- `git_commit`: variable created in this parent scope so that it can
+  be set in the Docker image build stage and referenced by subsequent
+  stages.
+- `git_repository`: name of the git repository to clone and work
+  against.
+- `image_name`: image / Docker repository name that will be referenced
+  when pushing to DockerHub or deploying to Kubernetes.
+- `kaniko_image`: Kaniko is a tool for building Docker images without
+  a Docker daemon. This avoids having to use Docker in Docker. The
+  image is a reference to the pre-built Kaniko image provided by
+  Google.
+- `kubectl_image`: image reference for a container image that contains
+  the necessary tooling to deploy to Kubernetes using `kubectl`.
+- `label`: a unique label for the executor node.
+- `namespace`: namespace to launch the application into.
+- `pod_yaml`: YAML configuration for describing the pods to be used by
+  Kubernetes to run each build stage. The names of each container are
+  referenced later in `container(name: CONTAINER_NAME){}` calls.
 
 ### Pod template and build stages section
 
 Below you will see the configuration and descriptions for the pod
 template and build stages.
 
-``` groovy
+```groovy
 // POD TEMPLATE AND BUILD STAGES
 
 podTemplate(name: 'kaniko', label: label, yaml: pod_yaml) {

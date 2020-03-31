@@ -17,9 +17,9 @@ functionality.
 
 ### Branches
 
-  - The facilitator will start on the `master` branch
-  - Attendees will be asked to checkout the `scenario4` branch
-  - A final solution can be found in the `completed` branch
+- The facilitator will start on the `master` branch
+- Attendees will be asked to checkout the `scenario4` branch
+- A final solution can be found in the `completed` branch
 
 ### The Requirements
 
@@ -27,12 +27,12 @@ functionality.
 
 A user's feed should include the following messages:
 
-  - Messages posted by the user themselves
-  - Messages posted by users they follow
-  - Messages which mention them (by including `@username` in a message)
+- Messages posted by the user themselves
+- Messages posted by users they follow
+- Messages which mention them (by including `@username` in a message)
 
 All requirements have scenarios written up and commented out in
-[features/message\_feed.feature](https://github.com/armakuni/python-lab-bdd/blob/master/flitter/flitter.py).
+[features/message_feed.feature](https://github.com/armakuni/python-lab-bdd/blob/master/flitter/flitter.py).
 
 #### Technical Requirements
 
@@ -50,7 +50,7 @@ at a later date.
 
 ### How To Do The Exercise
 
-Open the project in PyCharm and follow the instructions in the
+Open the project in Cloud9 and follow the instructions in the
 [README.md](https://github.com/armakuni/python-lab-bdd/blob/master/README.md)
 to set up the project. Then work through the following steps:
 
