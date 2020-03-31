@@ -13,7 +13,7 @@ need to configure you laptop.
 
 At the end of each day you should log out of all your personal accounts.
 
-  - To do this, follow the [Final Cleanup](000-final-cleanup.md) guide.
+  - To do this, follow the [Final Cleanup](400-final-cleanup.md) guide.
 
 ## Day 1
 
