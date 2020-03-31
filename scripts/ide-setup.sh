@@ -1,3 +1,4 @@
+echo "------------------------------------------------------------------------"
 echo "Starting IDE Setup"
 echo "------------------------------------------------------------------------"
 echo "Installing Kubectl"
@@ -37,5 +38,23 @@ echo "Updating KubeConfig"
 aws eks --region eu-west-2 update-kubeconfig --name dev-ak-k8s-cluster
 
 echo "Installing Python 3.7"
+WORKING_DIRECTORY="$PWD"
+
+cd /usr/src
+
+sudo wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+
+sudo tar xzf Python-3.7.4.tgz
+
+cd Python-3.7.4
+
+sudo ./configure --enable-optimizations
+
+sudo make altinstall
+
+pip install pipenv
+
+cd $WORKING_DIRECTORY
 echo "------------------------------------------------------------------------"
 echo "Setup Completed"
+echo "------------------------------------------------------------------------"
