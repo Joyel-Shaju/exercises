@@ -93,7 +93,6 @@ into your working directory by running the following command, replacing
 `GITHUB_ID` with your GitHub ID:
 
 ```cmd
-cd $HOMEPATH/Code/day-1
 git clone https://github.com/GITHUB_ID/python-lab-doorbell
 ```
 
