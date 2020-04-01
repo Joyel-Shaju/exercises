@@ -53,8 +53,7 @@ sudo ./configure --enable-optimizations
 
 sudo make altinstall
 
-pip install --upgrade pip
-pip install pipenv
+sudo pip install pipenv
 
 cd $WORKING_DIRECTORY
 echo "------------------------------------------------------------------------"
