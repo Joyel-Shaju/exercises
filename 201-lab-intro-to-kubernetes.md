@@ -14,13 +14,10 @@ this document.
 - `aws-iam-authenticator`
 - `docker`
 - `git`
-- `git bash`
 - `kubectl`
 - `python`
-- `PyCharm`
 
-This should have all been done for you in preparation for the course.
-However, should you get any missing command errors whilst following this
+Should you get any missing command errors whilst following this
 guide, please first double check the command you have entered and then
 speak to one of the instructors.
 
