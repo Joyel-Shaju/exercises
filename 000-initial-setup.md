@@ -14,7 +14,7 @@ curl https://raw.githubusercontent.com/software-engineering-practices/exercises/
 chmod +x setup.sh && ./setup.sh
 ```
 
-This might take some time based on your internet speed.
+This might take some time.
 
 ## Committing your changes
 
