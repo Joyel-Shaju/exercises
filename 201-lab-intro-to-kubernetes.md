@@ -178,6 +178,35 @@ be excluded.
 
 ## Exercise 2 - Kubernetes
 
+Note:
+
+If you are using Cloud9 IDE, disable the AWS Temporary credentials by first following below path in your Cloud9 IDE:
+
+Setting Button (Top Right) > AWS SETTINGS > Disable : AWS managed temporary credentials
+
+![](images/cloud9-disable-temp-creds.png)
+
+Open a new Terminal and set AWS Credential by running below command (If you do not have the credentials ask the instructor):
+
+```
+aws configure
+```
+
+Verify the user identity by running below command:
+
+```
+aws sts get-caller-identity
+```
+
+Now let us set the kube config to point our cluster.
+
+Ask for the cluster name and AWS Region where cluster is deployed,
+Ideally this should be "prod-ak-k8s-cluster" and "eu-west-2".
+
+```
+aws eks --region [AWS-REGION] update-kubeconfig --name [CLUSTER-NAME]
+```
+
 Check to ensure that your `kubectl` has the correct configuration:
 
 ```bash
@@ -213,7 +242,7 @@ users:
         args:
           - "token"
           - "-i"
-          - "eks-cluster"
+          - "prod-ak-k8s-cluster"
 ```
 
 If you see something like this:
