@@ -123,7 +123,7 @@ Then commit and push the change.
     succeed.
 
 If the build passes then you should be able to visit
-`http://GITHUB_ID-rabbit.apps.training.co.uk` in a browser and see the
+`http://GITHUB_ID-rabbit.apps.prod.practices.armakuni.co.uk` in a browser and see the
 RabbitMQ management control panel (user: `guest` / pass: `guest`).
 
 ## 5\. Create Service Jobs
@@ -183,25 +183,25 @@ following steps:
 ### Creating a Customer
 
 ```cmd
-curl -X POST http://GITHUB_ID-app.apps.training.co.uk/customers/ -H 'Content-Type: application/json' -d '{"firstName": "Joe", "surname": "Bloggs"}'
+curl -X POST http://GITHUB_ID-app.apps.prod.practices.armakuni.co.uk/customers/ -H 'Content-Type: application/json' -d '{"firstName": "Joe", "surname": "Bloggs"}'
 ```
 
 ### Fetching a Customer
 
 ```cmd
-curl -X GET http://GITHUB_ID-app.apps.training.co.uk/customers/CUSTOMER_ID
+curl -X GET http://GITHUB_ID-app.apps.prod.practices.armakuni.co.uk/customers/CUSTOMER_ID
 ```
 
 ### Create an Account
 
 ```cmd
-curl -X POST http://GITHUB_ID-app.apps.training.co.uk/accounts/ -H 'Content-Type: application/json' -d '{"customerId": "CUSTOMER_ID"}'
+curl -X POST http://GITHUB_ID-app.apps.prod.practices.armakuni.co.uk/accounts/ -H 'Content-Type: application/json' -d '{"customerId": "CUSTOMER_ID"}'
 ```
 
 ### Fetch an Account
 
 ```cmd
-curl -X GET http://GITHUB_ID-app.apps.training.co.uk/accounts/ACCOUNT_NUMBER
+curl -X GET http://GITHUB_ID-app.apps.prod.practices.armakuni.co.uk/accounts/ACCOUNT_NUMBER
 ```
 
 **Note:** ACCOUNT_NUMBER must be 8 digits
@@ -209,7 +209,7 @@ curl -X GET http://GITHUB_ID-app.apps.training.co.uk/accounts/ACCOUNT_NUMBER
 ### Make a Transaction
 
 ```cmd
-curl -X POST http://GITHUB_ID-app.apps.training.co.uk/cashier/create -H 'Content-Type: application/json' -d '{"accountNumber": "ACCOUNT_NUMBER", "amount": 100, "operation": "credit"}'
+curl -X POST http://GITHUB_ID-app.apps.prod.practices.armakuni.co.uk/cashier/create -H 'Content-Type: application/json' -d '{"accountNumber": "ACCOUNT_NUMBER", "amount": 100, "operation": "credit"}'
 ```
 
 | Field           | Values                        |
@@ -221,7 +221,7 @@ curl -X POST http://GITHUB_ID-app.apps.training.co.uk/cashier/create -H 'Content
 ### Check the Balance
 
 ```cmd
-curl -X GET http://GITHUB_ID-app.apps.training.co.uk/balance/ACCOUNT_NUMBER
+curl -X GET http://GITHUB_ID-app.apps.prod.practices.armakuni.co.uk/balance/ACCOUNT_NUMBER
 ```
 
 **Note:** ACCOUNT_NUMBER must be 8 digits
