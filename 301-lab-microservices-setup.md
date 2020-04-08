@@ -51,8 +51,13 @@ cd $HOMEPATH/Code/day-3
 In your Git Bash terminal, `cd` to your local projects directory and run
 the following commands:
 
+Replace the "GITHUB_ID" in below command before executing.
+
+```
+echo "export GITHUB_ID='GITHUB_ID'" >> ~/.bash_profile && source ~/.bash_profile
+```
+
 ```cmd
-export GITHUB_ID=<GITHUB_ID>
 git clone git@github.com:$GITHUB_ID/banking-app-infrastructure
 git clone git@github.com:$GITHUB_ID/account-service
 git clone git@github.com:$GITHUB_ID/cashier-service
@@ -64,13 +69,27 @@ git clone git@github.com:$GITHUB_ID/banking-app-smoketest
 
 ## 3\. Start Locally with `docker-compose`
 
-In a terminal, `cd` into the `banking-app-smoketest` directory and run:
+In a terminal, Install Docker Compose by running below commands:
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+```
+docker-compose --version
+```
+
+`cd` into the `banking-app-smoketest` directory and run:
 
 ```cmd
 docker-compose up
 ```
 
-> `docker-compose` is a too which allows allows you to create
+> `docker-compose` is a tool which allows allows you to create
 > multi-container applications. The containers that are create are
 > defined in the `docker-compose.yml` file.
 

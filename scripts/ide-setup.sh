@@ -55,6 +55,14 @@ sudo make altinstall
 
 sudo pip install pipenv
 
+echo "Installing Docker Compose"
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version
+
 cd $WORKING_DIRECTORY
 echo "------------------------------------------------------------------------"
 echo "Setup Completed"
