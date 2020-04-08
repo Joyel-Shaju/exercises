@@ -174,7 +174,7 @@ When we apply this, it will create an error when trying to deploy (which
 you will see when you later run `get pods`). Run:
 
 ```bash
-kubectl apply -n NAMESPACE -f kubernetes\
+kubectl apply -n NAMESPACE -f kubernetes
 ```
 
 Then run the following again:
