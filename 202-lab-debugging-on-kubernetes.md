@@ -194,7 +194,7 @@ have selected is invalid. Change the image name back to be your valid
 Docker ID and run the apply command again:
 
 ```bash
-kubectl apply -n NAMESPACE -f kubernetes\
+kubectl apply -n NAMESPACE -f kubernetes
 ```
 
 This should now look something like this:
