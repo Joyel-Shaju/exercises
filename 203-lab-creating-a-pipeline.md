@@ -9,7 +9,7 @@ previous exercises.
 
 ## Log in to Jenkins
 
-Navigate to <http://jenkins.dev.practices.armakuni.co.uk:8080/> in your browser and
+Navigate to <http://jenkins.prod.practices.armakuni.co.uk:8080/> in your browser and
 log in with the credentials provided by your instructor.
 
 ## Add a pipeline to Jenkins
